@@ -1,0 +1,27 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "item/potion_overlay",
+        "layer1": "item/potion"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "kirbyessentials:player": 0.1
+            },
+            "model": "kirbyessentials:item/pepsi_max"
+        },
+        {
+            "predicate": {
+                "kirbyessentials:player": 0.2
+            },
+            "model": "kirbyessentials:item/diet_coke"
+        },
+        {
+            "predicate": {
+                "kirbyessentials:player": 0.3
+            },
+            "model": "kirbyessentials:item/hot_coco"
+        }
+    ]
+}

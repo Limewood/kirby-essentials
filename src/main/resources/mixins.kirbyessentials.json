@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_17",
+  "package": "com.buncord.kirbyessentials.mixin",
+  "refmap": "mixins.kirbyessentials.refmap.json",
+  "mixins": [
+    "MixinCatGifts"
+  ],
+  "minVersion": "0.8.5"
+}
