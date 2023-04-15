@@ -49,7 +49,7 @@ abstract class MixinCatGifts {
 					// Let Z0eff always drop a birthday cake
 					cat.setLying(false);
 					float f = cat.level.getTimeOfDay(1.0F);
-					if (getOwnerPlayer().getSleepTimer() >= 100 && (double)f > 0.77D && (double)f < 0.8D) {
+					if (getOwnerPlayer().getSleepTimer() >= 20 && (double)f > 0.77D && (double)f < 0.8D) {
 						BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 						blockpos$mutableblockpos.set(cat.blockPosition());
 						Random random = cat.getRandom();
