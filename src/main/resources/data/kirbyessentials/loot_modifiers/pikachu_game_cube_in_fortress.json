@@ -1,0 +1,10 @@
+{
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/nether_bridge"
+    }
+  ],
+  "addition": "kirbyessentials:game_cube_pikachu",
+  "type": "kirbyessentials:pikachu_game_cube_in_fortress"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "kirbyessentials:block/game_cube",
+  "textures": {
+    "details": "kirbyessentials:block/game_cube_pikachu",
+    "front": "kirbyessentials:block/game_cube_front_pikachu",
+    "handle": "kirbyessentials:block/game_cube_handle_pikachu"
+  }
+}

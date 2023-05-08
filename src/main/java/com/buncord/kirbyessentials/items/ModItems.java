@@ -10,7 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-            DeferredRegister.create(ForgeRegistries.ITEMS, KirbyEssentials.MODID);
+            DeferredRegister.create(ForgeRegistries.ITEMS, KirbyEssentials.MOD_ID);
 
     public static final RegistryObject<Item> KLADDKAKA_CUPCAKE = ITEMS.register("kladdkaka_cupcake",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.KLADDKAKA_CUPCAKE)));

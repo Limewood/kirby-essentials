@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model":  "kirbyessentials:block/game_cube_orange" },
+    "facing=east": { "model":  "kirbyessentials:block/game_cube_orange", "y": 90 },
+    "facing=south": { "model":  "kirbyessentials:block/game_cube_orange", "y": 180 },
+    "facing=west": { "model":  "kirbyessentials:block/game_cube_orange", "y": 270 }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "kirbyessentials:game_cube_lime"
+    ]
+  },
+  "criteria": {
+    "has_shell_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:terracotta"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "kirbyessentials:game_cube_lime"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_shell_item",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -18,7 +18,7 @@ import java.util.List;
 
 import static com.buncord.kirbyessentials.Constants.*;
 
-@Mod.EventBusSubscriber(modid = KirbyEssentials.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = KirbyEssentials.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SetupEvents {
 	private static final Logger LOGGER = LogManager.getLogger();
 	private static final String PROPERTY_NAME_PLAYER = "player";
@@ -27,7 +27,7 @@ public class SetupEvents {
 	static void onClientSetup(FMLClientSetupEvent evt) {
 		evt.enqueueWork(() -> {
 			// Replace healing potions for the players with unique models
-			ItemProperties.register(Items.POTION, new ResourceLocation(KirbyEssentials.MODID, PROPERTY_NAME_PLAYER),
+			ItemProperties.register(Items.POTION, new ResourceLocation(KirbyEssentials.MOD_ID, PROPERTY_NAME_PLAYER),
 					(itemStack, level, entity, holdingEntityId) -> {
 						List<MobEffectInstance> mobEffects = PotionUtils.getPotion(itemStack).getEffects();
 						if (mobEffects.size() > 0) {

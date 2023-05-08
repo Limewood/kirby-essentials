@@ -1,0 +1,14 @@
+{
+  "game_cube_startup_sound": {
+    "subtitle": "sounds.kirbyessentials.game_cube_starting_up",
+    "sounds": [
+      "kirbyessentials:game_cube_startup_sound"
+    ]
+  },
+  "game_cube_startup_sound_pikachu": {
+    "subtitle": "sounds.kirbyessentials.game_cube_starting_up",
+    "sounds": [
+      "kirbyessentials:game_cube_startup_sound_pikachu"
+    ]
+  }
+}

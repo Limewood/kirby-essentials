@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "game_cube",
+  "pattern": [
+    "#b#",
+    "#e#",
+    "#r#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:orange_terracotta"
+    },
+    "b": {
+      "tag": "minecraft:buttons"
+    },
+    "e": {
+      "item": "minecraft:emerald"
+    },
+    "r": {
+      "item": "redstone"
+    }
+  },
+  "result": {
+    "item": "kirbyessentials:game_cube_orange"
+  }
+}

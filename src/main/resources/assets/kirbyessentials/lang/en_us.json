@@ -1,3 +1,7 @@
 {
-  "item.kirbyessentials.kladdkaka_cupcake": "Kladdkaka Cupcake"
+  "item.kirbyessentials.kladdkaka_cupcake": "Kladdkaka Cupcake",
+  "block.kirbyessentials.game_cube": "GameCube (%s)",
+  "material.kirbyessentials.gold": "Gold",
+  "material.kirbyessentials.pikachu": "Pikachu",
+  "sounds.kirbyessentials.game_cube_starting_up": "GameCube starts up"
 }

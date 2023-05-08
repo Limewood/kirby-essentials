@@ -1,0 +1,6 @@
+{
+  "parent": "kirbyessentials:block/game_cube",
+  "textures": {
+    "details": "kirbyessentials:block/game_cube_pink"
+  }
+}
