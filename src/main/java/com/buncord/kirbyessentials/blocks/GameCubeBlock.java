@@ -40,6 +40,7 @@ public class GameCubeBlock extends Block {
     private static final VoxelShape SHAPE = Block.box(5, 0, 5, 11, 4, 11);
     private static final String DESCRIPTION_KEY = "block.kirbyessentials.game_cube";
     private static final long STARTUP_SOUND_DURATION = 5 * 1_000; // 5 s
+    private static final float STARTUP_SOUND_VOLUME = 4f;
     private final DyeColor color;
     private final Type type;
     private long soundStartTime = 0;
@@ -131,7 +132,7 @@ public class GameCubeBlock extends Block {
             case PIKACHU -> soundEvent = ModSounds.GAME_CUBE_STARTUP_SOUND_PIKACHU.get();
             default -> soundEvent = ModSounds.GAME_CUBE_STARTUP_SOUND.get();
         }
-        level.playSound(null, blockPos, soundEvent, SoundSource.RECORDS, 4f, 1f);
+        level.playSound(null, blockPos, soundEvent, SoundSource.RECORDS, STARTUP_SOUND_VOLUME, 1f);
         soundStartTime = System.currentTimeMillis();
         return true;
     }
