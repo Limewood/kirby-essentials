@@ -1,6 +1,7 @@
 package com.buncord.kirbyessentials;
 
 import com.buncord.kirbyessentials.blocks.ModBlocks;
+import com.buncord.kirbyessentials.entities.ModEntities;
 import com.buncord.kirbyessentials.items.ModItems;
 import com.buncord.kirbyessentials.sounds.ModSounds;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,5 +20,6 @@ public class KirbyEssentials {
 		ModItems.register(eventBus);
 		ModBlocks.register(eventBus);
 		ModSounds.register(eventBus);
+		ModEntities.register(eventBus);
 	}
 }
