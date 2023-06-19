@@ -17,9 +17,9 @@ public class KirbyEssentials {
 	public KirbyEssentials() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CommonConfig.SPEC, "kirby-essentials-common.toml");
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		ModEntities.register(eventBus);
 		ModItems.register(eventBus);
 		ModBlocks.register(eventBus);
 		ModSounds.register(eventBus);
-		ModEntities.register(eventBus);
 	}
 }

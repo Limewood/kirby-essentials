@@ -30,7 +30,7 @@
   },
   "requirements": [
     [
-      "has_ingredient",
+      "has_ingredients",
       "has_the_recipe"
     ]
   ]
