@@ -39,11 +39,17 @@ public class ModEventBusEvents {
             return;
         }
 
-        ResourceLocation loc = new ResourceLocation(
+        ResourceLocation loc_off = new ResourceLocation(
             KirbyEssentials.MOD_ID,
-            TelevisionRenderer.TELEVISION_SPRITE_PATH
+            TelevisionRenderer.TELEVISION_OFF_SPRITE_PATH
         );
-        event.addSprite(loc);
+        event.addSprite(loc_off);
+
+        ResourceLocation loc_on = new ResourceLocation(
+            KirbyEssentials.MOD_ID,
+            TelevisionRenderer.TELEVISION_ON_SPRITE_PATH
+        );
+        event.addSprite(loc_on);
     }
 
 }

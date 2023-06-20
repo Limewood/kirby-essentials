@@ -29,7 +29,8 @@ import org.jetbrains.annotations.NotNull;
 @OnlyIn(Dist.CLIENT)
 public class TelevisionRenderer extends EntityRenderer<TelevisionEntity> {
 
-  public static final String TELEVISION_SPRITE_PATH = "entities/television";
+  public static final String TELEVISION_OFF_SPRITE_PATH = "entities/television";
+  public static final String TELEVISION_ON_SPRITE_PATH = "entities/destroyer";
 
   public TelevisionRenderer(Context context) {
     super(context);
@@ -64,9 +65,13 @@ public class TelevisionRenderer extends EntityRenderer<TelevisionEntity> {
                                          .getModelManager()
                                          .getAtlas(InventoryMenu.BLOCK_ATLAS);
 
-    TextureAtlasSprite televisionSprite = textureAtlas.getSprite(
-        new ResourceLocation(KirbyEssentials.MOD_ID, TELEVISION_SPRITE_PATH)
+    TextureAtlasSprite televisionFrontSprite = textureAtlas.getSprite(
+        new ResourceLocation(
+            KirbyEssentials.MOD_ID,
+            entity.isOn() ? TELEVISION_ON_SPRITE_PATH : TELEVISION_OFF_SPRITE_PATH
+        )
     );
+
     TextureAtlasSprite televisionBackSprite = textureAtlas.getSprite(
         new ResourceLocation("block/black_concrete")
     );
@@ -77,7 +82,7 @@ public class TelevisionRenderer extends EntityRenderer<TelevisionEntity> {
         entity,
         width,
         height,
-        televisionSprite,
+        televisionFrontSprite,
         televisionBackSprite
     );
     poseStack.popPose();

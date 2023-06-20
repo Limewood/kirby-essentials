@@ -6,7 +6,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
@@ -20,6 +25,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class TelevisionEntity extends HangingEntity implements IEntityAdditionalSpawnData {
+
+  private static final EntityDataAccessor<Boolean> DATA_ON_OFF =
+      SynchedEntityData.defineId(TelevisionEntity.class, EntityDataSerializers.BOOLEAN);
+  private boolean isOn = false;
 
   public TelevisionEntity(
       EntityType<? extends HangingEntity> entityType,
@@ -48,11 +57,13 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   public void addAdditionalSaveData(CompoundTag compoundTag) {
     compoundTag.putByte("Facing", (byte)this.direction.get2DDataValue());
+    compoundTag.putBoolean("IsOn", this.isOn);
     super.addAdditionalSaveData(compoundTag);
   }
 
   public void readAdditionalSaveData(CompoundTag compoundTag) {
     this.direction = Direction.from2DDataValue(compoundTag.getByte("Facing"));
+    this.isOn = compoundTag.getBoolean("IsOn");
     super.readAdditionalSaveData(compoundTag);
     this.setDirection(this.direction);
   }
@@ -109,6 +120,33 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   public ItemStack getPickResult() {
     return new ItemStack(ModItems.TELEVISION.get());
+  }
+
+  protected void defineSynchedData() {
+    this.getEntityData().define(DATA_ON_OFF, this.isOn);
+  }
+
+  public InteractionResult interact(
+      @NotNull Player player,
+      @NotNull InteractionHand interactionHand
+  ) {
+    if (!this.level.isClientSide && interactionHand == InteractionHand.OFF_HAND) {
+      this.toggleOnOff();
+
+      return InteractionResult.CONSUME;
+    }
+
+    return InteractionResult.PASS;
+  }
+
+  public boolean isOn() {
+    return this.getEntityData().get(DATA_ON_OFF);
+  }
+
+  public void toggleOnOff() {
+    this.isOn = !this.isOn;
+
+    this.getEntityData().set(DATA_ON_OFF, this.isOn);
   }
 
 }
