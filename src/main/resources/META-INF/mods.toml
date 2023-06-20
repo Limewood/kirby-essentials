@@ -31,7 +31,7 @@ logoFile="logo.png" #optional
 # A text field displayed in the mod UI
 credits="Buncord" #optional
 # A text field displayed in the mod UI
-authors="Limewood" #optional
+authors="Limewood & EvilCow" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Essential additions to KirbyCraft.
