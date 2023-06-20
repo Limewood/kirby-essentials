@@ -17,7 +17,7 @@ apply plugin: 'maven-publish'
 // MixinGradle:
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.4'
+version = '1.5'
 group = 'com.buncord.kirbyessentials' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'kirby-essentials'
 
@@ -200,11 +200,11 @@ jar {
     manifest {
         attributes([
                 "Specification-Title"     : "kirbyessentials",
-                "Specification-Vendor"    : "Limewood",
+                "Specification-Vendor"    : "Limewood & EvilCow",
                 "Specification-Version"   : "1.4", // Mod version
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "Limewood",
+                "Implementation-Vendor"   : "Limewood & EvilCow",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
