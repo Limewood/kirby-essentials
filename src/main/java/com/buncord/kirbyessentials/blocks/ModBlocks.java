@@ -7,6 +7,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +57,16 @@ public class ModBlocks {
             "game_cube_gold", () -> new GameCubeBlock(DyeColor.YELLOW, GameCubeBlock.Type.GOLDEN), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> GAME_CUBE_PIKACHU = registerBlock(
             "game_cube_pikachu", () -> new GameCubeBlock(DyeColor.YELLOW, GameCubeBlock.Type.PIKACHU), CreativeModeTab.TAB_DECORATIONS);
+
+    public static final RegistryObject<Block> FIREPROOF_DESTROYER = BLOCKS.register(
+        "fireproof_destroyer",
+        () -> new FireproofDestroyerBlock(
+            BlockBehaviour.Properties.of(Material.METAL)
+                                     .strength(2.5F)
+                                     .sound(SoundType.GLASS)
+                                     .randomTicks()
+        )
+    );
 
     private static <T extends Block> RegistryObject<T> registerBlock(
             String name, Supplier<T> block, CreativeModeTab tab

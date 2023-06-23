@@ -1,4 +1,10 @@
 {
+  "fireproof_destroyer": {
+    "subtitle": "sounds.kirbyessentials.fireproof_destroyer",
+    "sounds": [
+      "kirbyessentials:fireproof_destroyer"
+    ]
+  },
   "game_cube_startup_sound": {
     "subtitle": "sounds.kirbyessentials.game_cube_starting_up",
     "sounds": [
