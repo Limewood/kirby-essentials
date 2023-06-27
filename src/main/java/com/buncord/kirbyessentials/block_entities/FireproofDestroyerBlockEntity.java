@@ -191,7 +191,7 @@ public class FireproofDestroyerBlockEntity extends RandomizableContainerBlockEnt
                 blockPos,
                 ModSounds.FIREPROOF_DESTROYER.get(),
                 SoundSource.BLOCKS,
-                1F,
+                0.5F,
                 1F
             );
           }

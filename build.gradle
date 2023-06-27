@@ -201,7 +201,7 @@ jar {
         attributes([
                 "Specification-Title"     : "kirbyessentials",
                 "Specification-Vendor"    : "Limewood & EvilCow",
-                "Specification-Version"   : "1.4", // Mod version
+                "Specification-Version"   : "1.6", // Mod version
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "Limewood & EvilCow",

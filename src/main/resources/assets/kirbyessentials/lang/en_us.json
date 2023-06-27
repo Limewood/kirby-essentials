@@ -3,10 +3,10 @@
   "block.kirbyessentials.game_cube": "GameCube (%s)",
   "entity.kirbyessentials.fireproof_destroyer": "Fireproof Destroyer",
   "item.kirbyessentials.kladdkaka_cupcake": "Kladdkaka Cupcake",
-  "item.kirbyessentials.television": "Television",
   "material.kirbyessentials.gold": "Gold",
   "material.kirbyessentials.pikachu": "Pikachu",
   "sounds.kirbyessentials.fireproof_destroyer": "They were right!",
   "sounds.kirbyessentials.game_cube_starting_up": "GameCube starts up",
-  "item.kirbyessentials.television": "Television"
+  "item.kirbyessentials.television": "Television",
+  "entity.kirbyessentials.television_entity": "Television"
 }
