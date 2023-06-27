@@ -17,6 +17,9 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> GAME_CUBE_STARTUP_SOUND_PIKACHU =
             registerSoundEvent("game_cube_startup_sound_pikachu");
 
+    public static final RegistryObject<SoundEvent> FIREPROOF_DESTROYER =
+        registerSoundEvent("fireproof_destroyer");
+
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(KirbyEssentials.MOD_ID, name)));
     }

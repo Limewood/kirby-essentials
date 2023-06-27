@@ -1,6 +1,7 @@
 package com.buncord.kirbyessentials.items;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
+import com.buncord.kirbyessentials.blocks.ModBlocks;
 import com.buncord.kirbyessentials.entities.ModEntities;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -19,6 +20,13 @@ public class ModItems {
     public static RegistryObject<Item> TELEVISION = ITEMS.register("television",
         () -> new TelevisionItem(
             ModEntities.TELEVISION_ENTITY_TYPE,
+            new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
+        ));
+
+    public static RegistryObject<Item> FIREPROOF_DESTROYER = ITEMS.register(
+        "fireproof_destroyer",
+        () -> new FireproodDestroyerBlockItem(
+            ModBlocks.FIREPROOF_DESTROYER.get(),
             new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
         ));
 
