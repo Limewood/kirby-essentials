@@ -23,6 +23,12 @@ public class ModItems {
             new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
         ));
 
+    public static RegistryObject<Item> MISSING_POSTER = ITEMS.register("missing_poster",
+        () -> new MissingPosterItem(
+            ModEntities.MISSING_POSTER_ENTITY_TYPE,
+            new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
+        ));
+
     public static RegistryObject<Item> FIREPROOF_DESTROYER = ITEMS.register(
         "fireproof_destroyer",
         () -> new FireproodDestroyerBlockItem(

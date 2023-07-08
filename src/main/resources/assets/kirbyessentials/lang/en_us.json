@@ -7,6 +7,8 @@
   "material.kirbyessentials.pikachu": "Pikachu",
   "sounds.kirbyessentials.fireproof_destroyer": "They were right!",
   "sounds.kirbyessentials.game_cube_starting_up": "GameCube starts up",
+  "item.kirbyessentials.missing_poster": "Missing Poster",
   "item.kirbyessentials.television": "Television",
+  "entity.kirbyessentials.missing_poster": "Missing Poster",
   "entity.kirbyessentials.television_entity": "Television"
 }
