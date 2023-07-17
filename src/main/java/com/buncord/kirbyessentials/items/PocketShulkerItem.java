@@ -1,5 +1,6 @@
 package com.buncord.kirbyessentials.items;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -10,11 +11,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class PockerShulkerItem extends Item {
+public class PocketShulkerItem extends Item {
 
-  private long lastUseTime = 0L;
+  public static final String TAG_LAST_USE_TIME = "LastUseTime";
 
-  public PockerShulkerItem(Properties properties) {
+  public PocketShulkerItem(Properties properties) {
     super(properties);
   }
 
@@ -37,16 +38,11 @@ public class PockerShulkerItem extends Item {
           1.0F
       );
 
-      lastUseTime = level.getGameTime();
-
-      return InteractionResultHolder.consume(itemStack);
+      CompoundTag compoundTag = itemStack.getOrCreateTag();
+      compoundTag.putLong(TAG_LAST_USE_TIME, level.getGameTime());
     }
 
-    return InteractionResultHolder.fail(itemStack);
-  }
-
-  public long getLastUseTime() {
-    return lastUseTime;
+    return InteractionResultHolder.pass(itemStack);
   }
 
 }

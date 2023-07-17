@@ -2,9 +2,10 @@ package com.buncord.kirbyessentials.events;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.items.ModItems;
-import com.buncord.kirbyessentials.items.PockerShulkerItem;
+import com.buncord.kirbyessentials.items.PocketShulkerItem;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -62,14 +63,15 @@ public class SetupEvents {
 					(itemStack, level, entity, holdingEntityId) -> {
 						Entity actualEntity = entity != null ? entity : itemStack.getEntityRepresentation();
 
-						if (actualEntity != null) {
+						CompoundTag compoundTag = itemStack.getTag();
+
+						if (actualEntity != null && compoundTag != null) {
 							if (level == null && actualEntity.level instanceof ClientLevel) {
 								level = (ClientLevel)actualEntity.level;
 							}
 
 							if (level != null) {
-								PockerShulkerItem pocketShulker = (PockerShulkerItem) itemStack.getItem();
-								long lastUseTime = pocketShulker.getLastUseTime();
+								long lastUseTime = compoundTag.getLong(PocketShulkerItem.TAG_LAST_USE_TIME);
 
 								if (lastUseTime > 0) {
 									long gameTime = level.getGameTime();
