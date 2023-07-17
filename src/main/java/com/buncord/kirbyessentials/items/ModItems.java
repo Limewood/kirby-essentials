@@ -36,6 +36,12 @@ public class ModItems {
             new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)
         ));
 
+    public static RegistryObject<Item> POCKET_SHULKER = ITEMS.register(
+        "pocket_shulker",
+        () -> new PockerShulkerItem(
+            new Item.Properties().tab(CreativeModeTab.TAB_MISC)
+        ));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kirbyessentials:item/pocket_shulker_closed"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "kirbyessentials:shulker_open": 0.0
+      },
+      "model": "kirbyessentials:item/pocket_shulker_closed"
+    },
+    {
+      "predicate": {
+        "kirbyessentials:shulker_open": 0.1
+      },
+      "model": "kirbyessentials:item/pocket_shulker_open"
+    }
+  ]
+}
