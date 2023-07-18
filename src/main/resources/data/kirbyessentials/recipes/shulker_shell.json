@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "shulker_shell",
+  "ingredients": [
+    {
+      "item": "minecraft:shulker_box"
+    }
+  ],
+  "result": {
+    "item": "minecraft:shulker_shell",
+    "count": 2
+  }
+}

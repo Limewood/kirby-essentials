@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pocket_shulker",
+  "pattern": [
+    "s",
+    "r",
+    "s"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:shulker_shell"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "kirbyessentials:pocket_shulker"
+  }
+}

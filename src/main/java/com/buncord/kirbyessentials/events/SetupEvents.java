@@ -1,11 +1,16 @@
 package com.buncord.kirbyessentials.events;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
+import com.buncord.kirbyessentials.items.ModItems;
+import com.buncord.kirbyessentials.items.PocketShulkerItem;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -51,6 +56,38 @@ public class SetupEvents {
 						}
 						return 0;
 					});
+
+			ItemProperties.register(
+					ModItems.POCKET_SHULKER.get(),
+					new ResourceLocation(KirbyEssentials.MOD_ID, "shulker_open"),
+					(itemStack, level, entity, holdingEntityId) -> {
+						Entity actualEntity = entity != null ? entity : itemStack.getEntityRepresentation();
+
+						CompoundTag compoundTag = itemStack.getTag();
+
+						if (actualEntity != null && compoundTag != null) {
+							if (level == null && actualEntity.level instanceof ClientLevel) {
+								level = (ClientLevel)actualEntity.level;
+							}
+
+							if (level != null) {
+								long lastUseTime = compoundTag.getLong(PocketShulkerItem.TAG_LAST_USE_TIME);
+
+								if (lastUseTime > 0) {
+									long gameTime = level.getGameTime();
+
+									long timeDifference = Math.max(0, Math.min(10, gameTime - lastUseTime));
+
+									long openState = 10 - timeDifference;
+
+									return openState > 0 ? 0.1F : 0.0F;
+								}
+							}
+						}
+
+						return 0.0F;
+					}
+			);
 		});
 	}
 }
