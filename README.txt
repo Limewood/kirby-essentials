@@ -13,4 +13,4 @@ Rythian
 Briony (aka brionykay)
 Nina & The Yogscast
 Hansan (aka hansanpaints)
-Lithiumstars
+Llithiumstars

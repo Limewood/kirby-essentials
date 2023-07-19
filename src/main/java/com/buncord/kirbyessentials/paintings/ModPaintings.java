@@ -18,6 +18,10 @@ public class ModPaintings {
     public static final RegistryObject<Motive> PRIDE = registerPainting("pride",32,32);
     public static final RegistryObject<Motive> SHEEPDANCE = registerPainting("sheepdance",48,32);
     public static final RegistryObject<Motive> UNDERWATER = registerPainting("underwater",48,32);
+    public static final RegistryObject<Motive> BLELEH = registerPainting("bleleh",48,32);
+    public static final RegistryObject<Motive> KRB_LOGO = registerPainting("krb_logo",32,32);
+    public static final RegistryObject<Motive> KRB = registerPainting("krb",48,32);
+    public static final RegistryObject<Motive> FRIENDERMAN = registerPainting("frienderman",32,64);
 
     private static RegistryObject<Motive> registerPainting(String name, int width, int height) {
         return PAINTING_MOTIVES.register(name, () -> new Motive(width, height));
