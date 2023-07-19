@@ -30,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 public class TelevisionRenderer extends EntityRenderer<TelevisionEntity> {
 
   public static final String TELEVISION_OFF_SPRITE_PATH = "entities/television";
-  public static final String TELEVISION_ON_SPRITE_PATH = "entities/tv_destroyer";
+  public static final String TELEVISION_ON_SPRITE_PATH = "entities/television_on";
 
   public TelevisionRenderer(Context context) {
     super(context);
