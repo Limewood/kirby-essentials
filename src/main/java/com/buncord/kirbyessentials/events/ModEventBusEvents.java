@@ -19,7 +19,7 @@ public class ModEventBusEvents {
     ) {
         event.getRegistry().registerAll(
                 new PikachuGameCubeInFortressAdditionModifier.Serializer().setRegistryName
-                        (new ResourceLocation(KirbyEssentials.MOD_ID,"pikachu_game_cube_in_fortress"))
+                        (new ResourceLocation(KirbyEssentials.MOD_ID,"pikachu_game_cube_locations"))
         );
     }
 
