@@ -1,0 +1,14 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "kirbyessentials:item/elytra_briony"
+    },
+    "overrides": [
+        {
+            "predicate": {
+                "broken": 1
+            },
+            "model": "kirbyessentials:item/elytra_briony_broken"
+        }
+    ]
+}

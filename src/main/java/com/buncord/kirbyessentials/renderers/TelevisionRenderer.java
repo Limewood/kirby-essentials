@@ -29,8 +29,8 @@ import org.jetbrains.annotations.NotNull;
 @OnlyIn(Dist.CLIENT)
 public class TelevisionRenderer extends EntityRenderer<TelevisionEntity> {
 
-  public static final String TELEVISION_OFF_SPRITE_PATH = "entities/television";
-  public static final String TELEVISION_ON_SPRITE_PATH = "entities/television_on";
+  public static final String TELEVISION_OFF_SPRITE_PATH = "entity/television";
+  public static final String TELEVISION_ON_SPRITE_PATH = "entity/television_on";
 
   public TelevisionRenderer(Context context) {
     super(context);
