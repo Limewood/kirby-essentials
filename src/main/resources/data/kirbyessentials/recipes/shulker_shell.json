@@ -3,7 +3,7 @@
   "group": "shulker_shell",
   "ingredients": [
     {
-      "item": "minecraft:shulker_box"
+      "tag": "kirbyessentials:shulker_boxes"
     }
   ],
   "result": {
