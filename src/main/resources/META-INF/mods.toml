@@ -29,7 +29,7 @@ displayName="Kirby Essentials" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile="logo.png" #optional
 # A text field displayed in the mod UI
-credits="Buncord, Im_Just_HannahGrace, Llithiumstars" #optional
+credits="Buncord, Im_Just_HannahGrace, Llithiumstars, fictitiousdreamer, SapphireOfHell" #optional
 # A text field displayed in the mod UI
 authors="Limewood & EvilCow" #optional
 # The description text for the mod (multi line!) (#mandatory)
