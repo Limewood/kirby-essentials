@@ -28,7 +28,7 @@ import org.jetbrains.annotations.NotNull;
 @OnlyIn(Dist.CLIENT)
 public class MissingPosterRenderer extends EntityRenderer<MissingPosterEntity> {
 
-  public static final String MISSING_POSTER_SPRITE_PATH = "entities/missing_poster";
+  public static final String MISSING_POSTER_SPRITE_PATH = "entity/missing_poster";
 
   public MissingPosterRenderer(Context context) {
     super(context);
