@@ -76,18 +76,6 @@ public class ModClientEventBusEvents {
             return;
         }
 
-        ResourceLocation loc_television_off = new ResourceLocation(
-            KirbyEssentials.MOD_ID,
-            TelevisionRenderer.TELEVISION_OFF_SPRITE_PATH
-        );
-        event.addSprite(loc_television_off);
-
-        ResourceLocation loc_television_on = new ResourceLocation(
-            KirbyEssentials.MOD_ID,
-            TelevisionRenderer.TELEVISION_ON_SPRITE_PATH
-        );
-        event.addSprite(loc_television_on);
-
         ResourceLocation loc_missing_poster = new ResourceLocation(
             KirbyEssentials.MOD_ID,
             MissingPosterRenderer.MISSING_POSTER_SPRITE_PATH
