@@ -40,7 +40,7 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   private boolean isOn = false;
   private int changeInterval = 0;
-  private String motiveKey;
+  private String motiveKey = "";
   private final Map<String, Motive> motiveMap = new HashMap<>();
 
   public TelevisionEntity(
