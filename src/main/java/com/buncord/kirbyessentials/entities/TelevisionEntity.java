@@ -38,10 +38,26 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   private static final EntityDataAccessor<String> MOTIVE_KEY =
       SynchedEntityData.defineId(TelevisionEntity.class, EntityDataSerializers.STRING);
 
+  private static final Map<String, Motive> MOTIVE_MAP = new HashMap<>();
+
+  static {
+    MOTIVE_MAP.put("crime", ModPaintings.CRIME.get());
+    MOTIVE_MAP.put("easter", ModPaintings.EASTER.get());
+    MOTIVE_MAP.put("elytra", ModPaintings.ELYTRA.get());
+    MOTIVE_MAP.put("mugshots", ModPaintings.MUGSHOTS.get());
+    MOTIVE_MAP.put("pride", ModPaintings.PRIDE.get());
+    MOTIVE_MAP.put("sheepdance", ModPaintings.SHEEPDANCE.get());
+    MOTIVE_MAP.put("underwater", ModPaintings.UNDERWATER.get());
+    MOTIVE_MAP.put("bleleh", ModPaintings.BLELEH.get());
+    MOTIVE_MAP.put("krb_logo", ModPaintings.KRB_LOGO.get());
+    MOTIVE_MAP.put("krb", ModPaintings.KRB.get());
+    MOTIVE_MAP.put("frienderman", ModPaintings.FRIENDERMAN.get());
+    MOTIVE_MAP.put("endportal", ModPaintings.ENDPORTAL.get());
+  }
+
   private boolean isOn = false;
   private int changeInterval = 0;
   private String motiveKey = "";
-  private final Map<String, Motive> motiveMap = new HashMap<>();
 
   public TelevisionEntity(
       EntityType<? extends HangingEntity> entityType,
@@ -49,19 +65,6 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   )
   {
     super(entityType, level);
-
-    motiveMap.put("crime", ModPaintings.CRIME.get());
-    motiveMap.put("easter", ModPaintings.EASTER.get());
-    motiveMap.put("elytra", ModPaintings.ELYTRA.get());
-    motiveMap.put("mugshots", ModPaintings.MUGSHOTS.get());
-    motiveMap.put("pride", ModPaintings.PRIDE.get());
-    motiveMap.put("sheepdance", ModPaintings.SHEEPDANCE.get());
-    motiveMap.put("underwater", ModPaintings.UNDERWATER.get());
-    motiveMap.put("bleleh", ModPaintings.BLELEH.get());
-    motiveMap.put("krb_logo", ModPaintings.KRB_LOGO.get());
-    motiveMap.put("krb", ModPaintings.KRB.get());
-    motiveMap.put("frienderman", ModPaintings.FRIENDERMAN.get());
-    motiveMap.put("endportal", ModPaintings.ENDPORTAL.get());
   }
 
   public TelevisionEntity(Level level, BlockPos blockPos, Direction direction) {
@@ -152,7 +155,7 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   protected void defineSynchedData() {
     this.getEntityData().define(DATA_ON_OFF, this.isOn);
-    this.getEntityData().define(MOTIVE_KEY, this.motiveKey);
+    this.getEntityData().define(MOTIVE_KEY, this.motiveKey != null ? this.motiveKey : "");
   }
 
   public @NotNull InteractionResult interact(
@@ -173,7 +176,7 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   }
 
   public void toggleOnOff() {
-    this.isOn = !this.isOn;
+    this.isOn = !this.isOn();
 
     if (this.isOn) {
       this.setRandomMotive();
@@ -239,11 +242,11 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   }
 
   public Motive getMotive() {
-    return this.motiveMap.get(this.getEntityData().get(MOTIVE_KEY));
+    return MOTIVE_MAP.get(this.getEntityData().get(MOTIVE_KEY));
   }
 
   public void setRandomMotive() {
-    Set<String> motiveKeySet = this.motiveMap.keySet();
+    Set<String> motiveKeySet = MOTIVE_MAP.keySet();
 
     motiveKeySet.stream()
                 .skip(new Random().nextInt(motiveKeySet.size()))
