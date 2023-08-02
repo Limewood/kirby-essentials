@@ -1,12 +1,12 @@
 package com.buncord.kirbyessentials.renderers;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
-import com.buncord.kirbyessentials.items.ElytraBrionyItem;
 import com.buncord.kirbyessentials.items.ModItems;
+import com.buncord.kirbyessentials.items.elytra.CurioElytra;
 import com.buncord.kirbyessentials.models.ElytraBrionyModel;
-import com.buncord.kirbyessentials.models.ElytraKirstyModel;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import java.util.concurrent.atomic.AtomicReference;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 public class ElytraBrionyLayer<T extends LivingEntity, M extends EntityModel<T>>
     extends RenderLayer<T, M>
 {
-  private static final ResourceLocation WINGS_LOCATION =
+  public static final ResourceLocation WINGS_LOCATION =
       new ResourceLocation(KirbyEssentials.MOD_ID, "textures/entity/elytra_briony.png");
 
   private final ElytraBrionyModel<T> elytraModel;
@@ -56,7 +56,13 @@ public class ElytraBrionyLayer<T extends LivingEntity, M extends EntityModel<T>>
   ) {
     ItemStack itemstack = entity.getItemBySlot(EquipmentSlot.CHEST);
 
-    if (shouldRender(itemstack)) {
+    AtomicReference<ItemStack> atomicStack = new AtomicReference<>(ItemStack.EMPTY);
+
+    CurioElytra.getElytra(entity, false).ifPresent(elytra -> {
+      atomicStack.set(elytra.getSecond());
+    });
+
+    if (shouldRender(itemstack) || shouldRender(atomicStack.get())) {
       ResourceLocation resourcelocation = getElytraTexture();
 
       poseStack.pushPose();
