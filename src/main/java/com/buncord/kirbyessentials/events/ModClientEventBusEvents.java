@@ -26,13 +26,8 @@ import net.minecraftforge.client.event.EntityRenderersEvent.RegisterLayerDefinit
 import net.minecraftforge.client.event.EntityRenderersEvent.RegisterRenderers;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotTypeMessage;
-import top.theillusivec4.curios.api.SlotTypePreset;
 
 @Mod.EventBusSubscriber(modid = KirbyEssentials.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class ModClientEventBusEvents {
@@ -120,15 +115,6 @@ public class ModClientEventBusEvents {
             MissingPosterRenderer.MISSING_POSTER_SPRITE_PATH
         );
         event.addSprite(loc_missing_poster);
-    }
-
-    @SubscribeEvent
-    public static void onSetup(FMLClientSetupEvent event) {
-        InterModComms.sendTo(
-            CuriosApi.MODID,
-            SlotTypeMessage.REGISTER_TYPE,
-            () -> SlotTypePreset.BACK.getMessageBuilder().build()
-        );
     }
 
 }
