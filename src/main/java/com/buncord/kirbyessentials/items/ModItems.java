@@ -3,6 +3,8 @@ package com.buncord.kirbyessentials.items;
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.blocks.ModBlocks;
 import com.buncord.kirbyessentials.entities.ModEntities;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -78,6 +80,15 @@ public class ModItems {
             new Item.Properties().durability(432)
                                  .tab(CreativeModeTab.TAB_TRANSPORTATION)
                                  .rarity(Rarity.UNCOMMON)
+        )
+    );
+
+    public static RegistryObject<Item> FANCY_SHIRT = ITEMS.register(
+        "fancy_shirt",
+        () -> new CosmeticArmorItem(
+                ArmorMaterials.LEATHER,
+                EquipmentSlot.CHEST,
+                new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
         )
     );
 

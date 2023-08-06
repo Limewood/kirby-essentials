@@ -2,6 +2,7 @@ package com.buncord.kirbyessentials.events;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.entities.ModEntities;
+import com.buncord.kirbyessentials.models.FancyShirtModel;
 import com.buncord.kirbyessentials.models.ElytraBrionyModel;
 import com.buncord.kirbyessentials.models.ElytraKirstyModel;
 import com.buncord.kirbyessentials.models.ElytraRythianModel;
@@ -56,6 +57,11 @@ public class ModClientEventBusEvents {
         event.registerLayerDefinition(
             ElytraRythianModel.LAYER_LOCATION,
             ElytraRythianModel::createLayer
+        );
+
+        event.registerLayerDefinition(
+            FancyShirtModel.LAYER_LOCATION,
+            FancyShirtModel::createLayer
         );
     }
 
