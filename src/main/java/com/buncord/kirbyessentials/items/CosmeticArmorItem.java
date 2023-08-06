@@ -1,6 +1,8 @@
 package com.buncord.kirbyessentials.items;
 
+import com.buncord.kirbyessentials.models.BnuyHatModel;
 import com.buncord.kirbyessentials.models.FancyShirtModel;
+import com.buncord.kirbyessentials.models.PikaHatModel;
 import java.util.function.Consumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -43,6 +45,14 @@ public class CosmeticArmorItem extends ArmorItem {
         () -> new FancyShirtModel<>(getModel().bakeLayer(FancyShirtModel.LAYER_LOCATION))
     );
 
+    private final NonNullLazy<PikaHatModel<LivingEntity>> pikaHat = NonNullLazy.of(
+        () -> new PikaHatModel<>(getModel().bakeLayer(PikaHatModel.LAYER_LOCATION))
+    );
+
+    private final NonNullLazy<BnuyHatModel<LivingEntity>> bnuyHat = NonNullLazy.of(
+        () -> new BnuyHatModel<>(getModel().bakeLayer(BnuyHatModel.LAYER_LOCATION))
+    );
+
     private Rendering() {}
 
     @Override
@@ -56,6 +66,14 @@ public class CosmeticArmorItem extends ArmorItem {
 
       if (item == ModItems.FANCY_SHIRT.get()) {
         return this.fancyShirt.get();
+      }
+
+      if (item == ModItems.PIKA_HAT.get()) {
+        return this.pikaHat.get();
+      }
+
+      if (item == ModItems.BNUY_HAT.get()) {
+        return this.bnuyHat.get();
       }
 
       return null;
