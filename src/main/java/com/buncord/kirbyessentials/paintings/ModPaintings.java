@@ -23,11 +23,12 @@ public class ModPaintings {
     public static final RegistryObject<Motive> KRB = registerPainting("krb",48,32);
     public static final RegistryObject<Motive> FRIENDERMAN = registerPainting("frienderman",32,64);
     public static final RegistryObject<Motive> ENDPORTAL = registerPainting("endportal",64,48);
+    public static final RegistryObject<Motive> ELEPHANT_MILK = registerPainting("elephant_milk",64,48);
     public static final RegistryObject<Motive> TELEVISION = registerPainting("television",48,32);
     public static final RegistryObject<Motive> FIFI = registerPainting("fifi",64,48);
     public static final RegistryObject<Motive> GERRY = registerPainting("gerry",64,48);
     public static final RegistryObject<Motive> TABU = registerPainting("tabu",64,48);
-    public static final RegistryObject<Motive> FIFI2 = registerPainting("fifi2",64,48);
+    public static final RegistryObject<Motive> ELEPHANT_MILK2 = registerPainting("elephant_milk2",64,48);
 
     private static RegistryObject<Motive> registerPainting(String name, int width, int height) {
         return PAINTING_MOTIVES.register(name, () -> new Motive(width, height));
