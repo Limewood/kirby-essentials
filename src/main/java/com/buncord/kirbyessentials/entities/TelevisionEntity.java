@@ -1,6 +1,11 @@
 package com.buncord.kirbyessentials.entities;
 
 import com.buncord.kirbyessentials.items.ModItems;
+import com.buncord.kirbyessentials.paintings.ModPaintings;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -15,6 +20,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
+import net.minecraft.world.entity.decoration.Motive;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
@@ -29,7 +35,32 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   private static final EntityDataAccessor<Boolean> DATA_ON_OFF =
       SynchedEntityData.defineId(TelevisionEntity.class, EntityDataSerializers.BOOLEAN);
+  private static final EntityDataAccessor<String> MOTIVE_KEY =
+      SynchedEntityData.defineId(TelevisionEntity.class, EntityDataSerializers.STRING);
+
+  private static final Map<String, Motive> MOTIVE_MAP = new HashMap<>();
+
+  static {
+    MOTIVE_MAP.put("crime", ModPaintings.CRIME.get());
+    MOTIVE_MAP.put("easter", ModPaintings.EASTER.get());
+    MOTIVE_MAP.put("elytra", ModPaintings.ELYTRA.get());
+    MOTIVE_MAP.put("mugshots", ModPaintings.MUGSHOTS.get());
+    MOTIVE_MAP.put("pride", ModPaintings.PRIDE.get());
+    MOTIVE_MAP.put("sheepdance", ModPaintings.SHEEPDANCE.get());
+    MOTIVE_MAP.put("underwater", ModPaintings.UNDERWATER.get());
+    MOTIVE_MAP.put("bleleh", ModPaintings.BLELEH.get());
+    MOTIVE_MAP.put("krb_logo", ModPaintings.KRB_LOGO.get());
+    MOTIVE_MAP.put("krb", ModPaintings.KRB.get());
+    MOTIVE_MAP.put("frienderman", ModPaintings.FRIENDERMAN.get());
+    MOTIVE_MAP.put("endportal", ModPaintings.ENDPORTAL.get());
+    MOTIVE_MAP.put("fifi", ModPaintings.FIFI.get());
+    MOTIVE_MAP.put("gerry", ModPaintings.GERRY.get());
+    MOTIVE_MAP.put("tabu", ModPaintings.TABU.get());
+  }
+
   private boolean isOn = false;
+  private int changeInterval = 0;
+  private String motiveKey = "";
 
   public TelevisionEntity(
       EntityType<? extends HangingEntity> entityType,
@@ -57,12 +88,14 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   }
 
   public void addAdditionalSaveData(CompoundTag compoundTag) {
+    compoundTag.putString("Motive", motiveKey);
     compoundTag.putByte("Facing", (byte)this.direction.get2DDataValue());
     compoundTag.putBoolean("IsOn", this.isOn);
     super.addAdditionalSaveData(compoundTag);
   }
 
   public void readAdditionalSaveData(CompoundTag compoundTag) {
+    this.motiveKey = compoundTag.getString("Motive");
     this.direction = Direction.from2DDataValue(compoundTag.getByte("Facing"));
     this.isOn = compoundTag.getBoolean("IsOn");
     super.readAdditionalSaveData(compoundTag);
@@ -125,9 +158,10 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
 
   protected void defineSynchedData() {
     this.getEntityData().define(DATA_ON_OFF, this.isOn);
+    this.getEntityData().define(MOTIVE_KEY, this.motiveKey != null ? this.motiveKey : "");
   }
 
-  public InteractionResult interact(
+  public @NotNull InteractionResult interact(
       @NotNull Player player,
       @NotNull InteractionHand interactionHand
   ) {
@@ -145,7 +179,11 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
   }
 
   public void toggleOnOff() {
-    this.isOn = !this.isOn;
+    this.isOn = !this.isOn();
+
+    if (this.isOn) {
+      this.setRandomMotive();
+    }
 
     this.getEntityData().set(DATA_ON_OFF, this.isOn);
   }
@@ -185,6 +223,38 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
           d2 + d8
       ));
     }
+  }
+
+  @Override
+  public void tick() {
+    super.tick();
+
+    if (!this.level.isClientSide) {
+      if (this.isOn) {
+        this.changeInterval += 1;
+      } else {
+        this.changeInterval = 0;
+      }
+
+      if (this.changeInterval >= 100) {
+        this.changeInterval = 0;
+
+        this.setRandomMotive();
+      }
+    }
+  }
+
+  public Motive getMotive() {
+    return MOTIVE_MAP.get(this.getEntityData().get(MOTIVE_KEY));
+  }
+
+  public void setRandomMotive() {
+    Set<String> motiveKeySet = MOTIVE_MAP.keySet();
+
+    motiveKeySet.stream()
+                .skip(new Random().nextInt(motiveKeySet.size()))
+                .findFirst()
+                .ifPresent(randomMotiveKey -> this.getEntityData().set(MOTIVE_KEY, randomMotiveKey));
   }
 
 }
