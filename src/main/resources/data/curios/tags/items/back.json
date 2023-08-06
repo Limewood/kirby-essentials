@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:elytra",
+    {
+      "id": "kirbyessentials:elytra_briony",
+      "required": false
+    },
+    {
+      "id": "kirbyessentials:elytra_kirsty",
+      "required": false
+    },
+    {
+      "id": "kirbyessentials:elytra_rythian",
+      "required": false
+    }
+  ]
+}

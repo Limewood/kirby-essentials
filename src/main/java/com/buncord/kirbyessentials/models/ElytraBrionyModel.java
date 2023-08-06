@@ -50,7 +50,7 @@ public class ElytraBrionyModel<T extends LivingEntity> extends AgeableListModel<
                            cubedeformation
                        ),
         PartPose.offsetAndRotation(
-            -1.5F, -5.0F, -1.0F,
+            -1.5F, -5.0F, -0.5F,
             0.0F, 0.2617994F, 0.0F
         )
     );
@@ -59,12 +59,12 @@ public class ElytraBrionyModel<T extends LivingEntity> extends AgeableListModel<
         "right_wing",
         CubeListBuilder.create()
                        .addBox(
-                           0.0F, 0.0F, 0.0F,
+                           0.0F, 0.0F, -0.5F,
                            18.0F, 30.0F, 1.0F,
                            cubedeformation
                        ),
         PartPose.offsetAndRotation(
-            1.5F, -5.0F, -1.0F,
+            1.5F, -5.0F, 0.0F,
             0.0F, -0.2617994F, 0.F
         )
     );
