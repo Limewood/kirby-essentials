@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cosmetic_armor",
+  "pattern": [
+    "sws",
+    "sss",
+    "bsb"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:string"
+    },
+    "b": {
+      "item": "minecraft:black_dye"
+    },
+    "w": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "result": {
+    "item": "kirbyessentials:fancy_shirt"
+  }
+}
