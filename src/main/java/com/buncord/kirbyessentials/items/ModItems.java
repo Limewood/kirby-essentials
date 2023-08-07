@@ -92,6 +92,24 @@ public class ModItems {
         )
     );
 
+    public static RegistryObject<Item> PIKA_HAT = ITEMS.register(
+        "pika_hat",
+        () -> new CosmeticArmorItem(
+            ArmorMaterials.LEATHER,
+            EquipmentSlot.HEAD,
+            new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
+        )
+    );
+
+    public static RegistryObject<Item> BNUY_HAT = ITEMS.register(
+        "bnuy_hat",
+        () -> new CosmeticArmorItem(
+            ArmorMaterials.LEATHER,
+            EquipmentSlot.HEAD,
+            new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
+        )
+    );
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
