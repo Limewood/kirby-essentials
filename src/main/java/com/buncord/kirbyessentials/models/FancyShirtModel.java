@@ -56,7 +56,7 @@ public class FancyShirtModel<T extends LivingEntity> extends CosmeticArmorModel<
                        .addBox(
                            -4.0F, 0.0F, -2.0F,
                            8.0F, 12.0F, 4.0F,
-                           cubeDeformation.extend(0.25F),
+                           cubeDeformation.extend(0.6F, 0.25F, 0.6F),
                            0.25F, 0.25F
                        ),
         PartPose.ZERO
