@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "cosmetic_armor",
+  "group": "pika_hat",
   "pattern": [
     "sss",
     "srs",
