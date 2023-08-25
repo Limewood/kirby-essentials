@@ -22,6 +22,15 @@ public class ModBlockEntities {
           ).build(null)
   );
 
+  public static final RegistryObject<BlockEntityType<MegaChestBlockEntity>> MEGA_CHEST =
+      BLOCK_ENTITIES.register(
+          "mega_chest",
+          () -> BlockEntityType.Builder.of(
+              MegaChestBlockEntity::new,
+              ModBlocks.MEGA_CHEST.get()
+          ).build(null)
+      );
+
   public static void register(IEventBus eventBus) {
     BLOCK_ENTITIES.register(eventBus);
   }

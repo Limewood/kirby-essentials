@@ -68,6 +68,16 @@ public class ModBlocks {
         )
     );
 
+    public static final RegistryObject<Block> MEGA_CHEST = BLOCKS.register(
+        "mega_chest",
+        () -> new MegaChestBlock(
+            BlockBehaviour.Properties.of(Material.WOOD)
+                                     .strength(2.5F)
+                                     .sound(SoundType.WOOD)
+                                     .randomTicks()
+        )
+    );
+
     private static <T extends Block> RegistryObject<T> registerBlock(
             String name, Supplier<T> block, CreativeModeTab tab
     ) {

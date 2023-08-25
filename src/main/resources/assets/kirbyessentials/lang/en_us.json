@@ -1,7 +1,9 @@
 {
   "block.kirbyessentials.fireproof_destroyer": "Fireproof Destroyer",
+  "block.kirbyessentials.mega_chest": "Mega Chest",
   "block.kirbyessentials.game_cube": "GameCube (%s)",
   "entity.kirbyessentials.fireproof_destroyer": "Fireproof Destroyer",
+  "entity.kirbyessentials.mega_chest": "Mega Chest",
   "entity.kirbyessentials.missing_poster_entity": "Missing Poster",
   "entity.kirbyessentials.television_entity": "Television",
   "item.kirbyessentials.bnuy_hat": "Bnuy Hat",

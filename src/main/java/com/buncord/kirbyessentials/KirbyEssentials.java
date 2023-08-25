@@ -2,6 +2,7 @@ package com.buncord.kirbyessentials;
 
 import com.buncord.kirbyessentials.block_entities.ModBlockEntities;
 import com.buncord.kirbyessentials.blocks.ModBlocks;
+import com.buncord.kirbyessentials.containers.ModContainers;
 import com.buncord.kirbyessentials.entities.ModEntities;
 import com.buncord.kirbyessentials.items.ModItems;
 import com.buncord.kirbyessentials.paintings.ModPaintings;
@@ -26,5 +27,6 @@ public class KirbyEssentials {
 		ModItems.register(eventBus);
 		ModSounds.register(eventBus);
 		ModPaintings.register(eventBus);
+		ModContainers.register(eventBus);
 	}
 }
