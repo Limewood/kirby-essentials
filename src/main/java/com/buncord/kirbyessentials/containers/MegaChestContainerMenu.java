@@ -32,13 +32,20 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
 
     for(int j = 0; j < CONTAINER_ROWS; ++j) {
       for(int k = 0; k < 9; ++k) {
-        this.addSlot(new Slot(container, k + j * 9, 8 + k * 18, 18 + j * 18));
+        this.addSlot(
+            new Slot(container, k + j * 9, 8 + k * 18, 18 + j * 18)
+        );
       }
     }
 
     for(int l = 0; l < 3; ++l) {
       for(int j1 = 0; j1 < 9; ++j1) {
-        this.addSlot(new Slot(inventory, j1 + l * 9 + 9, 8 + j1 * 18, 103 + l * 18 + i));
+        this.addSlot(new Slot(
+            inventory,
+            j1 + l * 9 + 9,
+            8 + j1 * 18,
+            103 + l * 18 + i
+        ));
       }
     }
 
@@ -55,14 +62,24 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
     ItemStack itemstack = ItemStack.EMPTY;
     Slot slot = this.slots.get(slotID);
 
-    if (slot != null && slot.hasItem()) {
+    if (slot.hasItem()) {
       ItemStack itemstack1 = slot.getItem();
       itemstack = itemstack1.copy();
       if (slotID < CONTAINER_ROWS * 9) {
-        if (!this.moveItemStackTo(itemstack1, CONTAINER_ROWS * 9, this.slots.size(), true)) {
+        if (!this.moveItemStackTo(
+            itemstack1,
+            CONTAINER_ROWS * 9,
+            this.slots.size(),
+            true
+        )) {
           return ItemStack.EMPTY;
         }
-      } else if (!this.moveItemStackTo(itemstack1, 0, CONTAINER_ROWS * 9, false)) {
+      } else if (!this.moveItemStackTo(
+          itemstack1,
+          0,
+          CONTAINER_ROWS * 9,
+          false
+      )) {
         return ItemStack.EMPTY;
       }
 

@@ -16,7 +16,6 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
@@ -59,8 +58,8 @@ public class MegaChestBlockEntity extends RandomizableContainerBlockEntity {
     }
 
     protected boolean isOwnContainer(Player player) {
-      if (player.containerMenu instanceof ChestMenu) {
-        Container container = ((ChestMenu)player.containerMenu).getContainer();
+      if (player.containerMenu instanceof MegaChestContainerMenu) {
+        Container container = ((MegaChestContainerMenu)player.containerMenu).getContainer();
         return container == MegaChestBlockEntity.this;
       } else {
         return false;
@@ -108,7 +107,6 @@ public class MegaChestBlockEntity extends RandomizableContainerBlockEntity {
       @NotNull Inventory inventory
   ) {
     return new MegaChestContainerMenu(containerID, inventory, this);
-//    return ChestMenu.sixRows(containerID, inventory, this);
   }
 
   public void startOpen(@NotNull Player player) {

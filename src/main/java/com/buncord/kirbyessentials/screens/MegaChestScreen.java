@@ -55,7 +55,17 @@ public class MegaChestScreen
     RenderSystem.setShaderTexture(0, CONTAINER_BACKGROUND);
     int i = (this.width - this.imageWidth) / 2;
     int j = (this.height - this.imageHeight) / 2;
-    this.blit(poseStack, i, j, 0, 0, this.imageWidth, this.containerRows * 18 + 17);
-    this.blit(poseStack, i, j + this.containerRows * 18 + 17, 0, 126, this.imageWidth, 96);
+
+    this.blit(
+        poseStack,
+        i, j, 0,
+        0, this.imageWidth, this.containerRows * 18 + 17
+    );
+
+    this.blit(
+        poseStack,
+        i, j + this.containerRows * 18 + 17, 0,
+        126, this.imageWidth, 96
+    );
   }
 }
