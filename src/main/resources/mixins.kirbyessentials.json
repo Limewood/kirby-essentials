@@ -4,7 +4,8 @@
   "package": "com.buncord.kirbyessentials.mixin",
   "refmap": "mixins.kirbyessentials.refmap.json",
   "mixins": [
-    "MixinCatGifts"
+    "MixinCatGifts",
+    "SlotAccessor"
   ],
   "minVersion": "0.8.5"
 }

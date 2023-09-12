@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MegaChestBlockEntity extends RandomizableContainerBlockEntity {
 
-  private static final int SIZE = 54;
+  private static final int SIZE = 108;
 
   private static NonNullList<ItemStack> ITEMS = NonNullList.withSize(SIZE, ItemStack.EMPTY);
 
