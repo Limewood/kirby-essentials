@@ -56,6 +56,14 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
     MOTIVE_MAP.put("fifi", ModPaintings.FIFI.get());
     MOTIVE_MAP.put("gerry", ModPaintings.GERRY.get());
     MOTIVE_MAP.put("tabu", ModPaintings.TABU.get());
+    MOTIVE_MAP.put("elephant_milk", ModPaintings.ELEPHANT_MILK.get());
+    MOTIVE_MAP.put("baby", ModPaintings.BABY2.get());
+    MOTIVE_MAP.put("briony_elytra", ModPaintings.BRIONY_ELYTRA.get());
+    MOTIVE_MAP.put("milk_bucket", ModPaintings.MILK_BUCKET.get());
+    MOTIVE_MAP.put("never_argue", ModPaintings.NEVER_ARGUE.get());
+    MOTIVE_MAP.put("no_thoughts", ModPaintings.NO_THOUGHTS.get());
+    MOTIVE_MAP.put("not_shitting", ModPaintings.NOT_SHITTING.get());
+    MOTIVE_MAP.put("stinky_out", ModPaintings.STINKY_OUT.get());
   }
 
   private boolean isOn = false;
