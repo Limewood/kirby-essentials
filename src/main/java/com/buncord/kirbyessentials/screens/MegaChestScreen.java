@@ -1,5 +1,6 @@
 package com.buncord.kirbyessentials.screens;
 
+import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.containers.MegaChestContainerMenu;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -29,7 +30,7 @@ public class MegaChestScreen
     extends AbstractContainerScreen<MegaChestContainerMenu>
 {
   private static final ResourceLocation CONTAINER_BACKGROUND =
-      new ResourceLocation("textures/gui/container/generic_54.png");
+      new ResourceLocation(KirbyEssentials.MOD_ID, "textures/gui/container/mega_chest.png");
 
   // -
 
@@ -47,6 +48,7 @@ public class MegaChestScreen
     this.passEvents = false;
 
     this.imageHeight = 114 + chestMenu.getRowCount() * 18;
+    this.imageWidth = 195;
     this.inventoryLabelY = this.imageHeight - 94;
   }
 
@@ -58,7 +60,12 @@ public class MegaChestScreen
     }
   }
 
-  protected void slotClicked(@Nullable Slot p_98556_, int p_98557_, int p_98558_, @NotNull ClickType p_98559_) {
+  protected void slotClicked(
+      @Nullable Slot p_98556_,
+      int p_98557_,
+      int p_98558_,
+      @NotNull ClickType p_98559_
+  ) {
     this.searchBox.moveCursorToEnd();
     this.searchBox.setHighlightPos(0);
 
@@ -72,7 +79,14 @@ public class MegaChestScreen
       this.minecraft.keyboardHandler.setSendRepeatsToGui(true);
     }
 
-    this.searchBox = new EditBox(this.font, this.leftPos + 82, this.topPos + 6, 80, 9, new TranslatableComponent("itemGroup.search"));
+    this.searchBox = new EditBox(
+        this.font,
+        this.leftPos + 82,
+        this.topPos + 6,
+        80,
+        9,
+        new TranslatableComponent("itemGroup.search")
+    );
     this.searchBox.setMaxLength(50);
     this.searchBox.setBordered(false);
     this.searchBox.setTextColor(16777215);
@@ -160,7 +174,13 @@ public class MegaChestScreen
 
   protected void renderLabels(@NotNull PoseStack p_98616_, int p_98617_, int p_98618_) {
     RenderSystem.disableBlend();
-    this.font.draw(p_98616_, new TranslatableComponent("block.kirbyessentials.mega_chest"), 8.0F, 6.0F, 4210752);
+    this.font.draw(
+        p_98616_,
+        new TranslatableComponent("block.kirbyessentials.mega_chest"),
+        8.0F,
+        6.0F,
+        4210752
+    );
   }
 
   public boolean mouseClicked(double p_98531_, double p_98532_, int p_98533_) {
@@ -198,8 +218,17 @@ public class MegaChestScreen
     }
   }
 
-  protected boolean hasClickedOutside(double p_98541_, double p_98542_, int p_98543_, int p_98544_, int p_98545_) {
-    return p_98541_ < (double)p_98543_ || p_98542_ < (double)p_98544_ || p_98541_ >= (double)(p_98543_ + this.imageWidth) || p_98542_ >= (double)(p_98544_ + this.imageHeight);
+  protected boolean hasClickedOutside(
+      double p_98541_,
+      double p_98542_,
+      int p_98543_,
+      int p_98544_,
+      int p_98545_
+  ) {
+    return p_98541_ < (double)p_98543_ ||
+        p_98542_ < (double)p_98544_ ||
+        p_98541_ >= (double)(p_98543_ + this.imageWidth) ||
+        p_98542_ >= (double)(p_98544_ + this.imageHeight);
   }
 
   protected boolean insideScrollbar(double p_98524_, double p_98525_) {
@@ -208,14 +237,22 @@ public class MegaChestScreen
     int k = i + 175;
     int l = j + 18;
     int i1 = k + 14;
-    int j1 = l + 112;
-    return p_98524_ >= (double)k && p_98525_ >= (double)l && p_98524_ < (double)i1 && p_98525_ < (double)j1;
+    int j1 = l + 198;
+    return p_98524_ >= (double)k &&
+        p_98525_ >= (double)l &&
+        p_98524_ < (double)i1 && p_98525_ < (double)j1;
   }
 
-  public boolean mouseDragged(double p_98535_, double p_98536_, int p_98537_, double p_98538_, double p_98539_) {
+  public boolean mouseDragged(
+      double p_98535_,
+      double p_98536_,
+      int p_98537_,
+      double p_98538_,
+      double p_98539_
+  ) {
     if (this.scrolling) {
       int i = this.topPos + 18;
-      int j = i + 112;
+      int j = i + 198;
       this.scrollOffs = ((float)p_98536_ - (float)i - 7.5F) / ((float)(j - i) - 15.0F);
       this.scrollOffs = Mth.clamp(this.scrollOffs, 0.0F, 1.0F);
       this.menu.update(this.scrollOffs, this.searchBox.getValue());
@@ -233,31 +270,56 @@ public class MegaChestScreen
     this.renderTooltip(p_98577_, p_98578_, p_98579_);
   }
 
-  protected void renderTooltip(@NotNull PoseStack p_98590_, @NotNull ItemStack p_98591_, int p_98592_, int p_98593_) {
+  protected void renderTooltip(
+      @NotNull PoseStack p_98590_,
+      @NotNull ItemStack p_98591_,
+      int p_98592_,
+      int p_98593_
+  ) {
     if (this.minecraft == null) {
       return;
     }
 
-    List<Component> list = p_98591_.getTooltipLines(this.minecraft.player, this.minecraft.options.advancedItemTooltips ? TooltipFlag.Default.ADVANCED : TooltipFlag.Default.NORMAL);
+    List<Component> list = p_98591_.getTooltipLines(
+        this.minecraft.player,
+        this.minecraft.options.advancedItemTooltips
+          ? TooltipFlag.Default.ADVANCED
+          : TooltipFlag.Default.NORMAL
+    );
 
     this.renderTooltip(p_98590_, list, p_98591_.getTooltipImage(), p_98592_, p_98593_, p_98591_);
   }
 
   protected void renderBg(@NotNull PoseStack p_98572_, float p_98573_, int p_98574_, int p_98575_) {
     RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-
     RenderSystem.setShader(GameRenderer::getPositionTexShader);
-
     RenderSystem.setShaderTexture(0, CONTAINER_BACKGROUND);
-    this.blit(p_98572_, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
-    this.searchBox.render(p_98572_, p_98574_, p_98575_, p_98573_);
-    RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+
+    this.blit(
+        p_98572_,
+        this.leftPos,
+        this.topPos,
+        0,
+        0,
+        this.imageWidth,
+        this.imageHeight
+    );
+
     int i = this.leftPos + 175;
     int j = this.topPos + 18;
-    int k = j + 112;
-    RenderSystem.setShader(GameRenderer::getPositionTexShader);
+    int k = j + 198;
 
-    this.blit(p_98572_, i, j + (int)((float)(k - j - 17) * this.scrollOffs), 232 + (this.canScroll() ? 0 : 12), 0, 12, 15);
+    this.blit(
+        p_98572_,
+        i,
+        j + (int)((float)(k - j - 17) * this.scrollOffs),
+        232 + (this.canScroll() ? 0 : 12),
+        0,
+        12,
+        15
+    );
+
+    this.searchBox.render(p_98572_, p_98574_, p_98575_, p_98573_);
   }
 
 }

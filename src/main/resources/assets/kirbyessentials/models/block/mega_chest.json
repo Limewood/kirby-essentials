@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "kirbyessentials:block/mega_chest",
+    "top": "kirbyessentials:block/mega_chest_closed",
     "bottom": "kirbyessentials:block/mega_chest",
     "side": "kirbyessentials:block/mega_chest"
   }

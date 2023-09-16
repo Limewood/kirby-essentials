@@ -1,5 +1,6 @@
 package com.buncord.kirbyessentials.containers;
 
+import com.buncord.kirbyessentials.block_entities.MegaChestBlockEntity;
 import com.buncord.kirbyessentials.mixin.SlotAccessor;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,13 +37,13 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
 
   private final Container container;
 
-  public int activeSlotCount = 108;
+  public int activeSlotCount = MegaChestBlockEntity.SIZE;
 
   public final List<Slot> inventorySlots = new ArrayList<>();
   public final List<Slot> hotbarSlots = new ArrayList<>();
 
   public MegaChestContainerMenu(int containerID, Inventory inventory) {
-    this(containerID, inventory, new SimpleContainer(108));
+    this(containerID, inventory, new SimpleContainer(MegaChestBlockEntity.SIZE));
   }
 
   public MegaChestContainerMenu(
@@ -56,10 +57,15 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
     this.container.startOpen(inventory.player);
     int i = (CONTAINER_ROWS - 4) * 18;
 
-    for(int iItem = 0 ; iItem < 108 ; ++iItem) {
+    for(int iItem = 0 ; iItem < MegaChestBlockEntity.SIZE ; ++iItem) {
       if (iItem < SLOT_POSITIONS.length) {
         this.addSlot(
-            new CustomSlot(this.container, iItem, SLOT_POSITIONS[iItem][0], SLOT_POSITIONS[iItem][1])
+            new CustomSlot(
+                this.container,
+                iItem,
+                SLOT_POSITIONS[iItem][0],
+                SLOT_POSITIONS[iItem][1]
+            )
         );
       } else {
         this.addSlot(
@@ -99,7 +105,7 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
   public void update(float scrollOffs, String search) {
     List<Slot> activeSlots = new ArrayList<>();
 
-    for (int iSlot = 0 ; iSlot < 108  ; ++iSlot) {
+    for (int iSlot = 0 ; iSlot < MegaChestBlockEntity.SIZE  ; ++iSlot) {
       Slot slot = this.getSlot(iSlot);
 
       ItemStack itemStack = slot.getItem();
@@ -147,7 +153,7 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
     if (activeSlots.size() > 54) {
       activeSlots.subList(54, activeSlots.size()).clear();
     } else {
-      for (int iSlot = 0 ; iSlot < 108 && activeSlots.size() < 54 ; ++iSlot) {
+      for (int iSlot = 0 ; iSlot < MegaChestBlockEntity.SIZE && activeSlots.size() < 54 ; ++iSlot) {
         Slot slot = this.getSlot(iSlot);
 
         ItemStack itemStack = slot.getItem();
@@ -159,7 +165,7 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
     }
 
     int iActiveSlot = 0;
-    for (int iSlot = 0 ; iSlot < 108 ; ++iSlot) {
+    for (int iSlot = 0 ; iSlot < MegaChestBlockEntity.SIZE ; ++iSlot) {
       CustomSlot slot = (CustomSlot) this.getSlot(iSlot);
 
       boolean isActive = activeSlots.contains(slot);
@@ -239,7 +245,13 @@ public class MegaChestContainerMenu extends AbstractContainerMenu {
       this(p_40223_, p_40224_, p_40225_, p_40226_, true);
     }
 
-    public CustomSlot(Container p_40223_, int p_40224_, int p_40225_, int p_40226_, boolean isActive) {
+    public CustomSlot(
+        Container p_40223_,
+        int p_40224_,
+        int p_40225_,
+        int p_40226_,
+        boolean isActive
+    ) {
       super(p_40223_, p_40224_, p_40225_, p_40226_);
 
       this.isActive = isActive;

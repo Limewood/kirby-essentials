@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "mega_chest",
+  "pattern": [
+    "mcm"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:chest"
+    },
+    "m": {
+      "item": "minecraft:melon"
+    }
+  },
+  "result": {
+    "item": "kirbyessentials:mega_chest",
+    "count": 1
+  }
+}
