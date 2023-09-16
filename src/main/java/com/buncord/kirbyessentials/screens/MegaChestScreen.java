@@ -59,10 +59,6 @@ public class MegaChestScreen
   }
 
   protected void slotClicked(@Nullable Slot p_98556_, int p_98557_, int p_98558_, @NotNull ClickType p_98559_) {
-    if (p_98556_ == null) {
-      return;
-    }
-
     this.searchBox.moveCursorToEnd();
     this.searchBox.setHighlightPos(0);
 
@@ -80,13 +76,12 @@ public class MegaChestScreen
     this.searchBox.setMaxLength(50);
     this.searchBox.setBordered(false);
     this.searchBox.setTextColor(16777215);
-
     this.searchBox.setVisible(true);
     this.searchBox.setCanLoseFocus(false);
     this.searchBox.setFocus(true);
     this.searchBox.setValue("");
     this.searchBox.setWidth(89);
-    this.searchBox.x = this.leftPos + (82 /*default left*/ + 89 /*default width*/) - this.searchBox.getWidth();
+    this.searchBox.x = this.leftPos + 82 + 89 - this.searchBox.getWidth();
 
     this.addWidget(this.searchBox);
 
