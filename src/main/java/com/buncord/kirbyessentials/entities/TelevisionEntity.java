@@ -53,9 +53,6 @@ public class TelevisionEntity extends HangingEntity implements IEntityAdditional
     MOTIVE_MAP.put("krb", ModPaintings.KRB.get());
     MOTIVE_MAP.put("frienderman", ModPaintings.FRIENDERMAN.get());
     MOTIVE_MAP.put("endportal", ModPaintings.ENDPORTAL.get());
-    MOTIVE_MAP.put("fifi", ModPaintings.FIFI.get());
-    MOTIVE_MAP.put("gerry", ModPaintings.GERRY.get());
-    MOTIVE_MAP.put("tabu", ModPaintings.TABU.get());
     MOTIVE_MAP.put("baby", ModPaintings.BABY2.get());
     MOTIVE_MAP.put("briony_elytra", ModPaintings.BRIONY_ELYTRA.get());
     MOTIVE_MAP.put("milk_bucket", ModPaintings.MILK_BUCKET.get());
