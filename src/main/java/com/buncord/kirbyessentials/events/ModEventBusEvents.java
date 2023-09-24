@@ -2,6 +2,7 @@ package com.buncord.kirbyessentials.events;
 
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.events.loot.PikachuGameCubeInFortressAdditionModifier;
+import com.buncord.kirbyessentials.events.loot.TetrisGameCubeInFortressAdditionModifier;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
@@ -24,7 +25,9 @@ public class ModEventBusEvents {
     ) {
         event.getRegistry().registerAll(
                 new PikachuGameCubeInFortressAdditionModifier.Serializer().setRegistryName
-                        (new ResourceLocation(KirbyEssentials.MOD_ID,"pikachu_game_cube_locations"))
+                        (new ResourceLocation(KirbyEssentials.MOD_ID,"pikachu_game_cube_locations")),
+                new TetrisGameCubeInFortressAdditionModifier.Serializer().setRegistryName
+                        (new ResourceLocation(KirbyEssentials.MOD_ID,"tetris_game_cube_locations"))
         );
     }
 

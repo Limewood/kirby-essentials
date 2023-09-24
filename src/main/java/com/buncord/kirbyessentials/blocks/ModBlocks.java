@@ -57,6 +57,8 @@ public class ModBlocks {
             "game_cube_gold", () -> new GameCubeBlock(DyeColor.YELLOW, GameCubeBlock.Type.GOLDEN), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> GAME_CUBE_PIKACHU = registerBlock(
             "game_cube_pikachu", () -> new GameCubeBlock(DyeColor.YELLOW, GameCubeBlock.Type.PIKACHU), CreativeModeTab.TAB_DECORATIONS);
+    public static final RegistryObject<Block> GAME_CUBE_TETRIS = registerBlock(
+            "game_cube_tetris", () -> new GameCubeBlock(DyeColor.CYAN, GameCubeBlock.Type.TETRIS), CreativeModeTab.TAB_DECORATIONS);
 
     public static final RegistryObject<Block> FIREPROOF_DESTROYER = BLOCKS.register(
         "fireproof_destroyer",

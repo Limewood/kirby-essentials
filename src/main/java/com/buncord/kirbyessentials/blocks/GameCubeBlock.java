@@ -86,6 +86,7 @@ public class GameCubeBlock extends Block {
         switch (type) {
             case GOLDEN -> translationKey = "material.kirbyessentials.gold";
             case PIKACHU -> translationKey = "material.kirbyessentials.pikachu";
+            case TETRIS -> translationKey = "material.kirbyessentials.tetris";
             default -> translationKey = "color.minecraft." + color.getName();
         }
         return new TranslatableComponent(
@@ -130,6 +131,7 @@ public class GameCubeBlock extends Block {
         SoundEvent soundEvent;
         switch (type) {
             case PIKACHU -> soundEvent = ModSounds.GAME_CUBE_STARTUP_SOUND_PIKACHU.get();
+            case TETRIS -> soundEvent = ModSounds.GAME_CUBE_STARTUP_SOUND_TETRIS.get();
             default -> soundEvent = ModSounds.GAME_CUBE_STARTUP_SOUND.get();
         }
         level.playSound(null, blockPos, soundEvent, SoundSource.RECORDS, STARTUP_SOUND_VOLUME, 1f);
@@ -140,6 +142,7 @@ public class GameCubeBlock extends Block {
     public enum Type {
         REGULAR,
         GOLDEN,
-        PIKACHU
+        PIKACHU,
+        TETRIS
     }
 }

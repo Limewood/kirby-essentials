@@ -21,3 +21,6 @@ fictitiousdreamer
 Some parrot sounds copyrights (used with permission):
 Apollo and frens
 SapphireOfHell
+
+"Tetris forever" by rocavaco
+2013 - Licensed under Creative Commons Attribution (3.0)
