@@ -23,11 +23,7 @@ public class ModPaintings {
     public static final RegistryObject<Motive> KRB = registerPainting("krb",48,32);
     public static final RegistryObject<Motive> FRIENDERMAN = registerPainting("frienderman",32,64);
     public static final RegistryObject<Motive> ENDPORTAL = registerPainting("endportal",64,48);
-    public static final RegistryObject<Motive> ELEPHANT_MILK = registerPainting("elephant_milk",64,48);
     public static final RegistryObject<Motive> TELEVISION = registerPainting("television",48,32);
-    public static final RegistryObject<Motive> FIFI = registerPainting("fifi",64,48);
-    public static final RegistryObject<Motive> GERRY = registerPainting("gerry",64,48);
-    public static final RegistryObject<Motive> TABU = registerPainting("tabu",64,48);
     public static final RegistryObject<Motive> BABY = registerPainting("baby",64,48);
     public static final RegistryObject<Motive> BRIONY_ELYTRA = registerPainting("briony_elytra",64,48);
     public static final RegistryObject<Motive> MILK_BUCKET = registerPainting("milk_bucket",64,48);
@@ -35,7 +31,6 @@ public class ModPaintings {
     public static final RegistryObject<Motive> NO_THOUGHTS = registerPainting("no_thoughts",64,48);
     public static final RegistryObject<Motive> NOT_SHITTING = registerPainting("not_shitting",64,48);
     public static final RegistryObject<Motive> STINKY_OUT = registerPainting("stinky_out",64,48);
-    public static final RegistryObject<Motive> MR_BEARD = registerPainting("mr_beard",64,32);
 
     public static final RegistryObject<Motive> BABY2 = registerPainting("baby2",64,48);
 
