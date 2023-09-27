@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model":  "kirbyessentials:block/game_cube_tetris" },
+    "facing=east": { "model":  "kirbyessentials:block/game_cube_tetris", "y": 90 },
+    "facing=south": { "model":  "kirbyessentials:block/game_cube_tetris", "y": 180 },
+    "facing=west": { "model":  "kirbyessentials:block/game_cube_tetris", "y": 270 }
+  }
+}

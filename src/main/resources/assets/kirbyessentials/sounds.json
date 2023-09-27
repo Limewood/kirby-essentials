@@ -16,5 +16,11 @@
     "sounds": [
       "kirbyessentials:game_cube_startup_sound_pikachu"
     ]
+  },
+  "game_cube_startup_sound_tetris": {
+    "subtitle": "sounds.kirbyessentials.game_cube_starting_up",
+    "sounds": [
+      "kirbyessentials:game_cube_startup_sound_tetris"
+    ]
   }
 }
