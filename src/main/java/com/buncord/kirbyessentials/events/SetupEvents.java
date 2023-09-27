@@ -3,6 +3,8 @@ package com.buncord.kirbyessentials.events;
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.items.ModItems;
 import com.buncord.kirbyessentials.items.PocketShulkerItem;
+import com.buncord.kirbyessentials.potion.BetterBrewingRecipe;
+import com.buncord.kirbyessentials.potion.ModPotions;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
@@ -13,17 +15,16 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.List;
-import top.theillusivec4.curios.api.CuriosApi;
-import top.theillusivec4.curios.api.SlotTypeMessage;
-import top.theillusivec4.curios.api.SlotTypePreset;
 
 import static com.buncord.kirbyessentials.Constants.*;
 
@@ -92,6 +93,18 @@ public class SetupEvents {
 						return 0.0F;
 					}
 			);
+		});
+	}
+
+	@SubscribeEvent
+	static void onSetup(FMLCommonSetupEvent event) {
+		event.enqueueWork(() -> {
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(
+					Potions.AWKWARD, Items.AMETHYST_SHARD, ModPotions.FLIGHT_POTION.get()
+			));
+			BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(
+					ModPotions.FLIGHT_POTION.get(), Items.REDSTONE, ModPotions.FLIGHT_POTION_EXTENDED.get()
+			));
 		});
 	}
 }
