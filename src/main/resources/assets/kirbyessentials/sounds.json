@@ -22,5 +22,13 @@
     "sounds": [
       "kirbyessentials:game_cube_startup_sound_tetris"
     ]
+  },
+  "coldplay_cd": {
+    "sounds": [
+      {
+        "name": "kirbyessentials:coldplay_cd",
+        "stream": true
+      }
+    ]
   }
 }

@@ -3,11 +3,9 @@ package com.buncord.kirbyessentials.items;
 import com.buncord.kirbyessentials.KirbyEssentials;
 import com.buncord.kirbyessentials.blocks.ModBlocks;
 import com.buncord.kirbyessentials.entities.ModEntities;
+import com.buncord.kirbyessentials.sounds.ModSounds;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterials;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -108,6 +106,15 @@ public class ModItems {
             EquipmentSlot.HEAD,
             new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
         )
+    );
+
+    public static RegistryObject<Item> COLDPLAY_CD = ITEMS.register(
+            "coldplay_cd",
+            () -> new RecordItem(
+                    1,
+                    ModSounds.COLDPLAY_CD,
+                    new Item.Properties().stacksTo(1).tab(CreativeModeTab.TAB_MISC).rarity(Rarity.RARE)
+            )
     );
 
     public static void register(IEventBus eventBus) {
