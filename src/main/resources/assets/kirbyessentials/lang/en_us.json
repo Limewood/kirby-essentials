@@ -25,5 +25,9 @@
   "item.minecraft.lingering_potion.effect.flight_potion": "Lingering Potion of Flight",
   "item.minecraft.potion.effect.flight_potion_extended": "Potion of Flight",
   "item.minecraft.splash_potion.effect.flight_potion_extended": "Splash Potion of Flight",
-  "item.minecraft.lingering_potion.effect.flight_potion_extended": "Lingering Potion of Flight"
+  "item.minecraft.lingering_potion.effect.flight_potion_extended": "Lingering Potion of Flight",
+  "item.minecraft.tipped_arrow.effect.flight_potion": "Arrow of Flight",
+  "item.minecraft.tipped_arrow.effect.flight_potion_extended": "Arrow of Flight",
+  "item.kirbyessentials.coldplay_cd": "Coldplay CD",
+  "item.kirbyessentials.coldplay_cd.desc": "A Dialga figurine"
 }

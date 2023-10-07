@@ -22,6 +22,9 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> FIREPROOF_DESTROYER =
         registerSoundEvent("fireproof_destroyer");
 
+    public static final RegistryObject<SoundEvent> COLDPLAY_CD =
+            registerSoundEvent("coldplay_cd");
+
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () -> new SoundEvent(new ResourceLocation(KirbyEssentials.MOD_ID, name)));
     }
