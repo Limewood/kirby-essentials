@@ -31,6 +31,9 @@ public class ModPaintings {
     public static final RegistryObject<Motive> NO_THOUGHTS = registerPainting("no_thoughts",64,48);
     public static final RegistryObject<Motive> NOT_SHITTING = registerPainting("not_shitting",64,48);
     public static final RegistryObject<Motive> STINKY_OUT = registerPainting("stinky_out",64,48);
+    public static final RegistryObject<Motive> BRIONY_NYEHEHE = registerPainting("briony_nyehehe",16,16);
+    public static final RegistryObject<Motive> KORT_PEEP = registerPainting("kort_peep",32,16);
+    public static final RegistryObject<Motive> THE_SILLIES = registerPainting("the_sillies",64,48);
 
     public static final RegistryObject<Motive> BABY2 = registerPainting("baby2",64,48);
 
