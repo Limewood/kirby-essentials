@@ -17,6 +17,7 @@ Hansan (aka hansanpaints)
 Llithiumstars
 Im_Just_HannahGrace
 fictitiousdreamer
+MikeKILLUZ
 
 Some parrot sounds copyrights (used with permission):
 Apollo and frens
