@@ -29,5 +29,6 @@
   "item.minecraft.tipped_arrow.effect.flight_potion": "Arrow of Flight",
   "item.minecraft.tipped_arrow.effect.flight_potion_extended": "Arrow of Flight",
   "item.kirbyessentials.coldplay_cd": "Coldplay CD",
-  "item.kirbyessentials.coldplay_cd.desc": "A Dialga figurine"
+  "item.kirbyessentials.coldplay_cd.desc": "A Dialga figurine",
+  "message.kirbyessentials.sleeping": "%s is eeby and neebies to sleebie"
 }
