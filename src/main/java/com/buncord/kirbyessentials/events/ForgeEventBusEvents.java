@@ -1,13 +1,11 @@
 package com.buncord.kirbyessentials.events;
 
-import static com.buncord.kirbyessentials.items.elytra.CurioElytra.getElytra;
-
 import com.buncord.kirbyessentials.KirbyEssentials;
-import com.buncord.kirbyessentials.items.elytra.CurioElytra;
 import com.buncord.kirbyessentials.items.ModItems;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import com.buncord.kirbyessentials.items.elytra.CurioElytra;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -17,6 +15,7 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent.PlayerTickEvent;
+import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -24,8 +23,16 @@ import top.theillusivec4.caelus.api.CaelusApi;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
+
+import static com.buncord.kirbyessentials.items.elytra.CurioElytra.getElytra;
+
 @Mod.EventBusSubscriber(modid = KirbyEssentials.MOD_ID, bus = Bus.FORGE)
 public class ForgeEventBusEvents {
+    private static String SLEEP_MESSAGE = "message.kirbyessentials.sleeping";
 
     @SubscribeEvent
     public static void onAttachCapabilitiesEvent(final AttachCapabilitiesEvent<ItemStack> event) {
@@ -72,4 +79,14 @@ public class ForgeEventBusEvents {
         }
     }
 
+    @SubscribeEvent
+    public static void playerSleepInBed(final PlayerSleepInBedEvent event) {
+        if (event.getPlayer() instanceof ServerPlayer player) {
+            List<ServerPlayer> players = Objects.requireNonNull(player.getServer()).getPlayerList().getPlayers();
+            TranslatableComponent sleepComp = new TranslatableComponent(SLEEP_MESSAGE, player.getName());
+            for (Player p : players) {
+                p.sendMessage(sleepComp, p.getUUID());
+            }
+        }
+    }
 }
