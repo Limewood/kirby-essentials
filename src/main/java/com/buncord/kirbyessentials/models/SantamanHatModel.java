@@ -82,7 +82,7 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
             RIM,
             CubeListBuilder.create()
                     .texOffs(0, 0)
-                    .addBox(-5.0F, -9.0F, -5.0F,
+                    .addBox(-5.0F, -10.0F, -5.0F,
                             10.0F, 3.0F, 10.0F),
             PartPose.offset(0.0F, 0F, 0.0F));
 
@@ -90,7 +90,7 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
             LAYER1,
             CubeListBuilder.create()
                     .texOffs(33, 64)
-                    .addBox(-4.0F, -11.0F, -6.0F,
+                    .addBox(-4.0F, -12.0F, -6.0F,
                             8.0F, 4.0F, 8.0F),
             PartPose.offsetAndRotation(
                     0.0F, 0F, 0.0F,
@@ -101,7 +101,7 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
             LAYER2,
             CubeListBuilder.create()
                     .texOffs(33, 64)
-                    .addBox(-3.0F, -12.0F, -6.5F,
+                    .addBox(-3.0F, -13.0F, -6.8F,
                             6.0F, 4.0F, 6.0F),
             PartPose.offsetAndRotation(
                     0.0F, 0F, 0.0F,
@@ -112,7 +112,7 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
             LAYER3,
             CubeListBuilder.create()
                     .texOffs(33, 64)
-                    .addBox(-2.0F, -13.0F, -7.0F,
+                    .addBox(-2.0F, -14.0F, -7.7F,
                             4.0F, 4.0F, 4.0F),
             PartPose.offsetAndRotation(
                     0.0F, 0F, 0.0F,
@@ -123,7 +123,7 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
             BOBBLE,
             CubeListBuilder.create()
                     .texOffs(0, 32)
-                    .addBox(-1.0F, -14.0F, -8.0F,
+                    .addBox(-1.0F, -15.0F, -9.0F,
                             2.0F, 4.0F, 2.0F),
             PartPose.offsetAndRotation(
                     0.0F, 0F, 0.0F,
