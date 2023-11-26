@@ -45,9 +45,9 @@ public class SantamanLayer<T extends LivingEntity, M extends EntityModel<T>>
   ) {
     poseStack.pushPose();
 
-    // TODO adjust scale and translation for the final model
-    poseStack.scale(10F / 18F,  20F / 30F, 1.0F);
-    poseStack.translate(0.0D, -2.0D, 0.0D);
+    // Adjust scale and translation for the final model
+//    poseStack.scale(10F / 18F,  20F / 30F, 1.0F);
+    poseStack.translate(0.0D, -0.9F, 0.0D);
 
     this.santamanHatModel.setupAnim(entity, animationPosition, animationSpeed, bob, headRot, xRot);
 
