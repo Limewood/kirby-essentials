@@ -8,11 +8,13 @@ import com.buncord.kirbyessentials.models.ElytraBrionyModel;
 import com.buncord.kirbyessentials.models.ElytraKirstyModel;
 import com.buncord.kirbyessentials.models.ElytraRythianModel;
 import com.buncord.kirbyessentials.models.PikaHatModel;
+import com.buncord.kirbyessentials.models.SantamanHatModel;
 import com.buncord.kirbyessentials.renderers.ElytraVanillaLayer;
 import com.buncord.kirbyessentials.renderers.ElytraBrionyLayer;
 import com.buncord.kirbyessentials.renderers.ElytraKirstyLayer;
 import com.buncord.kirbyessentials.renderers.ElytraRythianLayer;
 import com.buncord.kirbyessentials.renderers.MissingPosterRenderer;
+import com.buncord.kirbyessentials.renderers.SantamanLayer;
 import com.buncord.kirbyessentials.renderers.TelevisionRenderer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -75,6 +77,11 @@ public class ModClientEventBusEvents {
             BnuyHatModel.LAYER_LOCATION,
             BnuyHatModel::createLayer
         );
+
+        event.registerLayerDefinition(
+            SantamanHatModel.LAYER_LOCATION,
+            SantamanHatModel::createLayer
+        );
     }
 
     @SubscribeEvent
@@ -82,6 +89,7 @@ public class ModClientEventBusEvents {
         addPlayerLayer(evt, "default");
         addPlayerLayer(evt, "slim");
         addEntityLayer(evt, EntityType.ARMOR_STAND);
+        addSantamanLayer(evt, EntityType.ENDERMAN);
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
@@ -97,8 +105,9 @@ public class ModClientEventBusEvents {
         }
     }
 
-    private static <T extends LivingEntity, M extends HumanoidModel<T>, R extends LivingEntityRenderer<T, M>> void addEntityLayer(
-        EntityRenderersEvent.AddLayers evt, EntityType<? extends T> entityType) {
+    private static <T extends LivingEntity, M extends HumanoidModel<T>, R extends LivingEntityRenderer<T, M>>
+        void addEntityLayer(EntityRenderersEvent.AddLayers evt, EntityType<? extends T> entityType)
+    {
         R renderer = evt.getRenderer(entityType);
 
         if (renderer != null) {
@@ -107,6 +116,16 @@ public class ModClientEventBusEvents {
             renderer.addLayer(new ElytraRythianLayer<>(renderer, evt.getEntityModels()));
 
             renderer.addLayer(new ElytraVanillaLayer<>(renderer, evt.getEntityModels()));
+        }
+    }
+
+    private static <T extends LivingEntity, M extends HumanoidModel<T>, R extends LivingEntityRenderer<T, M>>
+    void addSantamanLayer(EntityRenderersEvent.AddLayers evt, EntityType<? extends T> entityType)
+    {
+        R renderer = evt.getRenderer(entityType);
+
+        if (renderer != null) {
+            renderer.addLayer(new SantamanLayer<>(renderer, evt.getEntityModels()));
         }
     }
 
