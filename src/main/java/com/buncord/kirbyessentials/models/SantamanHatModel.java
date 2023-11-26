@@ -30,7 +30,6 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
           "main"
       );
 
-  // TODO create hat texture
   public static final ResourceLocation TEXTURE = new ResourceLocation(
       KirbyEssentials.MOD_ID,
       "textures/models/armor/santaman_hat.png"
