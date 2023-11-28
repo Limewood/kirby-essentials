@@ -3,6 +3,7 @@ package com.buncord.kirbyessentials.items;
 import com.buncord.kirbyessentials.models.BnuyHatModel;
 import com.buncord.kirbyessentials.models.FancyShirtModel;
 import com.buncord.kirbyessentials.models.PikaHatModel;
+import com.buncord.kirbyessentials.models.SantamanHatModel;
 import java.util.function.Consumer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
@@ -53,6 +54,10 @@ public class CosmeticArmorItem extends ArmorItem {
         () -> new BnuyHatModel<>(getModel().bakeLayer(BnuyHatModel.LAYER_LOCATION))
     );
 
+    private final NonNullLazy<SantamanHatModel<LivingEntity>> santaHat = NonNullLazy.of(
+        () -> new SantamanHatModel<>(getModel().bakeLayer(SantamanHatModel.LAYER_LOCATION))
+    );
+
     private Rendering() {}
 
     @Override
@@ -74,6 +79,10 @@ public class CosmeticArmorItem extends ArmorItem {
 
       if (item == ModItems.BNUY_HAT.get()) {
         return this.bnuyHat.get();
+      }
+
+      if (item == ModItems.SANTA_HAT.get()) {
+        return this.santaHat.get();
       }
 
       return null;

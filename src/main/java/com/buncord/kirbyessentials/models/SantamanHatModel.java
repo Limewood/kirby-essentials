@@ -40,8 +40,6 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
   public final ModelPart layer2;
   public final ModelPart layer3;
   public final ModelPart bobble;
-  private final Map<ModelPart, Vector3f> partPos;
-  private final Map<ModelPart, Vector3f> partRot;
 
   private static final String RIM = "rim";
   private static final String LAYER1 = "layer1";
@@ -57,18 +55,6 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
     this.layer2 = modelPart.getChild(LAYER2);
     this.layer3 = modelPart.getChild(LAYER3);
     this.bobble = modelPart.getChild(BOBBLE);
-    this.partPos = new HashMap<>();
-    this.partRot = new HashMap<>();
-    addPosAndRot(this.rim);
-    addPosAndRot(this.layer1);
-    addPosAndRot(this.layer2);
-    addPosAndRot(this.layer3);
-    addPosAndRot(this.bobble);
-  }
-
-  private void addPosAndRot(ModelPart part) {
-    this.partPos.put(part, new Vector3f(part.x, part.y, part.z));
-    this.partRot.put(part, new Vector3f(part.xRot, part.yRot, part.zRot));
   }
 
   public static LayerDefinition createLayer()
@@ -135,6 +121,20 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
   @Override
   protected @NotNull Iterable<ModelPart> headParts()
   {
+    this.rim.copyFrom(this.hat);
+
+    this.layer1.setPos(this.hat.x, this.hat.y, this.hat.z);
+    this.layer1.setRotation(this.hat.xRot - 0.2F, this.hat.yRot, this.hat.zRot);
+
+    this.layer2.setPos(this.hat.x, this.hat.y, this.hat.z);
+    this.layer2.setRotation(this.hat.xRot - 0.4F, this.hat.yRot, this.hat.zRot);
+
+    this.layer3.setPos(this.hat.x, this.hat.y, this.hat.z);
+    this.layer3.setRotation(this.hat.xRot - 0.6F, this.hat.yRot, this.hat.zRot);
+
+    this.bobble.setPos(this.hat.x, this.hat.y, this.hat.z);
+    this.bobble.setRotation(this.hat.xRot - 0.8F, this.hat.yRot, this.hat.zRot);
+
     return ImmutableList.of(
             this.rim,
             this.layer1,
@@ -160,21 +160,6 @@ public class SantamanHatModel<T extends LivingEntity> extends CosmeticArmorModel
       float headPitch
   ) {
     super.setupAnim(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-    // Make the hat follow the head
-    addHeadPositionAndRotation(this.rim);
-    addHeadPositionAndRotation(this.layer1);
-    addHeadPositionAndRotation(this.layer2);
-    addHeadPositionAndRotation(this.layer3);
-    addHeadPositionAndRotation(this.bobble);
-  }
-
-  public void addHeadPositionAndRotation(ModelPart part) {
-    part.x = partPos.get(part).x() + head.x;
-    part.y = partPos.get(part).y() + head.y;
-    part.z = partPos.get(part).z() + head.z;
-    part.xRot = partRot.get(part).x() + head.xRot;
-    part.yRot = partRot.get(part).y() + head.yRot;
-    part.zRot = partRot.get(part).z() + head.zRot;
   }
 
   @Override

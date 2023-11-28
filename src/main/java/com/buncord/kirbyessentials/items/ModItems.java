@@ -108,6 +108,15 @@ public class ModItems {
         )
     );
 
+    public static RegistryObject<Item> SANTA_HAT = ITEMS.register(
+        "santa_hat",
+        () -> new CosmeticArmorItem(
+            ArmorMaterials.LEATHER,
+            EquipmentSlot.HEAD,
+            new Item.Properties().tab(CreativeModeTab.TAB_COMBAT)
+        )
+    );
+
     public static RegistryObject<Item> COLDPLAY_CD = ITEMS.register(
             "coldplay_cd",
             () -> new RecordItem(
