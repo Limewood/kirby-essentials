@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "santa_hat",
+  "group": "bnuy_hat",
   "pattern": [
-    " w ",
-    "rrr",
-    "www"
+    "sss",
+    "s s",
+    "pyp"
   ],
   "key": {
-    "r": {
-      "item": "minecraft:red_dye"
+    "s": {
+      "item": "minecraft:string"
     },
-    "w": {
-      "item": "minecraft:white_dye"
+    "p": {
+      "item": "minecraft:pink_dye"
+    },
+    "y": {
+      "item": "minecraft:yellow_dye"
     }
   },
   "result": {
-    "item": "kirbyessentials:santa_hat"
+    "item": "kirbyessentials:bnuy_hat"
   }
 }

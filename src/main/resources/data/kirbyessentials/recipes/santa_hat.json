@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "santa_hat",
+  "pattern": [
+    " w ",
+    "rcr",
+    "www"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:red_dye"
+    },
+    "w": {
+      "item": "minecraft:white_dye"
+    },
+    "c": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "result": {
+    "item": "kirbyessentials:santa_hat"
+  }
+}
