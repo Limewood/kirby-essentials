@@ -89,7 +89,9 @@ public class ModClientEventBusEvents {
         addPlayerLayer(evt, "default");
         addPlayerLayer(evt, "slim");
         addEntityLayer(evt, EntityType.ARMOR_STAND);
-        addSantamanLayer(evt, EntityType.ENDERMAN);
+
+        // Disabled since it's not Christmas anymore
+        // addSantamanLayer(evt, EntityType.ENDERMAN);
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
