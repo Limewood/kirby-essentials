@@ -181,20 +181,14 @@ public class FireproofDestroyerBlockEntity extends RandomizableContainerBlockEnt
           entity.getItems().clear();
           entity.setChanged();
 
-          Random random = new Random();
-
-          int randomInt = random.nextInt(10);
-
-          if (randomInt == 0) {
-            level.playSound(
-                null,
-                blockPos,
-                ModSounds.FIREPROOF_DESTROYER.get(),
-                SoundSource.BLOCKS,
-                0.5F,
-                1F
-            );
-          }
+          level.playSound(
+              null,
+              blockPos,
+              ModSounds.FIREPROOF_DESTROYER.get(),
+              SoundSource.BLOCKS,
+              0.5F,
+              1F
+          );
         }
 
         entity.ticks = 0;
